@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>AF02A805-43BB-49BF-BC27-984F719C6DD7</string>
+	<key>IDESourceControlProjectName</key>
+	<string>stopwatch</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>5ACBFDBC-6270-4D86-8675-568DCF50D05B</key>
+		<string>https://github.com/pliablematter/appstep.tv.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>stopwatch/stopwatch.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>5ACBFDBC-6270-4D86-8675-568DCF50D05B</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/pliablematter/appstep.tv.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>5ACBFDBC-6270-4D86-8675-568DCF50D05B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5ACBFDBC-6270-4D86-8675-568DCF50D05B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>appstep</string>
+		</dict>
+	</array>
+</dict>
+</plist>
