@@ -24,6 +24,10 @@
 			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
 		</script>
 
+		<link rel="stylesheet" type="text/css" href="flowplayer/skin/minimalist.css">
+	   	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	   	<script type="text/javascript" src="flowplayer/flowplayer.min.js"></script>
+
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
@@ -35,6 +39,7 @@
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
+
 				<section>
 					<h1>Intro to iOS Development</h1>
 					<h3>How to create and publish a simple app</h3>
@@ -51,9 +56,14 @@
 				</section>
 
 				<section>
+					<!-- flow player -->
 					<h2>Create a New Project</h2>
 					<p>
-						TODO: Create video that shows creating an Xcode project, selecting master-detail application, and using CoreData. Include screeshot with playbutton here
+						<div class="flowplayer color-light" data-engine="flash" data-swf="flowplayer/flowplayer.swf">
+					      <video>
+					         <source type="video/mp4" src="videos/create-project.mov">
+					      </video>
+					   </div>
 					</p>
 				</section>
 
