@@ -42,6 +42,16 @@
     int temperature = 32;
     NSString *units = @"celsius";
     NSLog(@"The current temperature is %d degrees %@", temperature, units);
+    
+    // Calling functions
+    [self logTemperature: 72 withUnits:@"fahrenheit"];
+    [self logTemperature: 32 withUnits:@"celsius"];
+    [self logTemperature: 0 withUnits:@"fahrenheit"];
+}
+
+- (void)logTemperature:(int)temperature withUnits:(NSString*)units
+{
+    NSLog(@"The current temperature is %d degrees %@", temperature, units);
 }
 
 @end
