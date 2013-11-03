@@ -61,52 +61,65 @@
 					<p>
 						<div class="flowplayer color-light" data-engine="flash" data-swf="flowplayer/flowplayer.swf">
 					      <video>
-					         <source type="video/mp4" src="videos/create-project.mov">
+					         <source type="video/mp4" src="http://videos.appstep.tv/create-project.mov">
 					      </video>
 					   </div>
 					</p>
 				</section>
 
 				<section>
-					<h2>Coding Exercises</h2>
+					<!-- flow player -->
+					<h2>Coding Exercises : Setup</h2>
 					<p>
-						These exercises are designed to give you a little bit of context before jumping into writing
-						an application. It's not necessary to understand everything fully.
+						<div class="flowplayer color-light" data-engine="flash" data-swf="flowplayer/flowplayer.swf">
+					      <video>
+					         <source type="video/mp4" src="http://videos.appstep.tv/test-setup.mov">
+					      </video>
+					   </div>
 					</p>
 				</section>
 
 				<section>
 					<h2>Coding Exercises : Comparision Operators : ==</h2>
 					<ul>
-						<ul class="fragment">== (equals equals) asks the question "is the value on the left equal to the value on the right?"</ul>
-						<ul class="fragment" style="margin-top: 18px">Examples:</ul>
-						<ul class="fragment">True or False? : 1 == 1 <span class="fragment" style="color: #3B4"> True</span></ul>
-						<ul class="fragment">True or False? : 1 == 2 <span class="fragment" style="color: red"> False</span></ul>
-						<ul class="fragment" >True or False? : 0 == 0 <span class="fragment" style="color: #3B4"> True</span></ul>
-						<ul class="fragment" style="margin-top: 18px">There are more comparision operators... !=  &gt;  &lt;  &gt;=  &lt;=  etc.</ul>
-						<ul class="fragment">But we don't need to learn them right now</ul>
+						<li class="fragment">== (equals equals) asks the question "is the value on the left equal to the value on the right?"</li>
+						<li class="fragment" style="margin-top: 18px">Examples:</li>
+						<li class="fragment">True or False? : 1 == 1 <span class="fragment" style="color: #3B4"> True</span></li>
+						<li class="fragment">True or False? : 1 == 2 <span class="fragment" style="color: red"> False</span></li>
+						<li class="fragment" >True or False? : 0 == 0 <span class="fragment" style="color: #3B4"> True</span></li>
+						<li class="fragment" style="margin-top: 18px">There are more comparision operators... !=  &gt;  &lt;  &gt;=  &lt;=  etc.</li>
+						<li class="fragment">But we don't need to learn them right now</ul>
 					</ul>
 				</section>
 
 				<section>
-					<h2>Coding Exercises : Try Them Out</h2>
-
-					<p>TODO: Add video showing how to get to and run the unit tests</p> 
-
-				</section>
-
-				<section>
 					<h2>Coding Exercises : If</h2>
-					<div>
-					<pre><code data-trim contenteditable>
+					<ul>
+						<li>An <em>If Statement</em> lets you choose to run code only when something is true</li>
+					</ul>
+					<pre class="fragment" style="margin-top: 40px;"><code data-trim contenteditable>
 if(1==1)
 {
     NSLog(@"Hello");
 }
 					</code></pre>
-					</div>
-					<p class="fragment" style="margin-top: 32px">NOTE: The format @"Some text here" is used whenever you want to represent some text (called a String) in Objective C</p>
-					<p class="fragment" style="margin-top: 32px">ALSO: Single line commands (called Statements) like the NSLog command need to end with a semicolon (;)</p>
+				</section>
+
+				<section>
+					<h2>Coding Exercises : If</h2>
+					<p>
+						<div class="flowplayer color-light" data-engine="flash" data-swf="flowplayer/flowplayer.swf">
+					      <video>
+					         <source type="video/mp4" src="http://videos.appstep.tv/if-statement.mov">
+					      </video>
+					   </div>
+					</p>
+					<p>
+						<a href="https://github.com/pliablematter/appstep.tv/blob/04c4e093787c098a2d0998a3175fc87544fbb05d/stopwatch/stopwatchTests/stopwatchTests.m">Source File : stopwatch / stopwatchTests / stopwatchTests.m</a>
+					</p>
+					<p>
+
+					</p>
 				</section>
 
 				<section>
@@ -132,7 +145,7 @@ if(1==0)
 
 				<section>
 					<h2>Coding Exercises : If / Else</h2>
-					<p>If / Else lets you choose to do one thing or another</p>
+					<p><em>If / Else</em> lets you choose to do one thing or another depending on whether something is true or false</p>
 					<pre style="margin-top: 40px;"><code data-trim contenteditable>
 // This should print "Hello"
 if(1==1)
@@ -144,7 +157,23 @@ else
     NSLog(@"Goodbye");
 }
 					</code></pre>
-					<p style="margin-top: 18px">Try changing 1==1 to 1==0 to see the result</p>
+				</section>
+
+				<section>
+					<h2>Coding Exercises : If / Else</h2>
+					<p>
+						<div class="flowplayer color-light" data-engine="flash" data-swf="flowplayer/flowplayer.swf">
+					      <video>
+					         <source type="video/mp4" src="http://videos.appstep.tv/if-else.mov">
+					      </video>
+					   </div>
+					</p>
+					<p>
+						<a href="https://github.com/pliablematter/appstep.tv/blob/3270d52f57f89a5922bdb27e8741ffb77f8ad875/stopwatch/stopwatchTests/stopwatchTests.m">Source File : stopwatch / stopwatchTests / stopwatchTests.m</a>
+					</p>
+					<p>
+
+					</p>
 				</section>
 
 				<section>
@@ -158,35 +187,41 @@ else
 					</ul>
 
 					<pre class="fragment" style="margin-top: 40px;"><code data-trim contenteditable>
-int monkeys = 10;
-NSLog(@"%d little monkeys jumping on the bed...", monkeys);
-// 1 fell off and bonked his head
-monkeys = monkeys - 1;
-NSLog(@"%d little monkeys jumping on the bed...", monkeys);
+int temperature = 72;
+NSLog(@"The current temperature is %d degrees", temperature);
 					</code></pre>
-					<p class="fragment" style="margin-top: 32px">NOTE: %d is a placeholder for inserting a number into an NSLog command</p>
+				</section>
+
+				<section>
+					<h2>Coding Exercises : Variables</h2>
+					<p>
+						<div class="flowplayer color-light" data-engine="flash" data-swf="flowplayer/flowplayer.swf">
+					      <video>
+					         <source type="video/mp4" src="http://videos.appstep.tv/variables.mov">
+					      </video>
+					   </div>
+					</p>
+					<p>
+						<a href="https://github.com/pliablematter/appstep.tv/blob/4519e5e3c61cdfae8532989b002bbb010eac960c/stopwatch/stopwatchTests/stopwatchTests.m">Source File : stopwatch / stopwatchTests / stopwatchTests.m</a>
+					</p>
+					<p>
+
+					</p>
 				</section>
 
 				<section>
 					<h2>Coding Exercises : More Variables</h2>
 					
 					<ul>
-						<li class="fragment">You always need to specify the type when creating a variable</li>
 						<li class="fragment">For complex types, you need to add a asterisk (*) before the variable name</li>
 					</ul>
 					<pre style="margin-top: 40px;" class="fragment"><code data-trim contenteditable>
+// Variables
 // Simple type
-int monkeys = 10;
-// Simple type
-BOOL jumping = YES;
+int temperature = 72;
 // Complex type
-NSString *onWhat = @"Bed";
+NSString *units = @"fahrenheit";
 					</code></pre>
-					<ul class="fragment">
-						<li>int means Integer</li>
-						<li>BOOL means Boolean (Yes or No values)</li>
-						<li>Numbers and booleans are simple types. Everything else is complex.</li>
-					</ul>
 				</section>
 				
 				<section>

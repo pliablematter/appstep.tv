@@ -39,8 +39,9 @@
     }
     
     // Variables
-    int temperature = 74;
-    NSLog(@"The current temperature is %d degrees", temperature);
+    int temperature = 32;
+    NSString *units = @"celsius";
+    NSLog(@"The current temperature is %d degrees %@", temperature, units);
 }
 
 @end
