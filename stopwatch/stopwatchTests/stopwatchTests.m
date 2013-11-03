@@ -28,9 +28,14 @@
 
 - (void)testExample
 {
-    if(1==1)
+    // This should log Goodbye
+    if(1==2)
     {
         NSLog(@"Hello");
+    }
+    else
+    {
+        NSLog(@"Goodbye");
     }
 }
 
