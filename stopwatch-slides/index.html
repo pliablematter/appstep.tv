@@ -59,8 +59,8 @@
 					<!-- flow player -->
 					<h2>Create a New Project</h2>
 					<p>
-						<div class="flowplayer color-light" data-engine="flash" data-swf="flowplayer/flowplayer.swf">
-					      <video>
+						<div class="flowplayer" data-engine="flash" data-swf="flowplayer/flowplayer.swf">
+					      <video preload="none">
 					         <source type="video/mp4" src="http://videos.appstep.tv/create-project.mov">
 					      </video>
 					   </div>
@@ -71,8 +71,8 @@
 					<!-- flow player -->
 					<h2>Coding Exercises : Setup</h2>
 					<p>
-						<div class="flowplayer color-light" data-engine="flash" data-swf="flowplayer/flowplayer.swf">
-					      <video>
+						<div class="flowplayer" data-engine="flash" data-swf="flowplayer/flowplayer.swf">
+					      <video preload="none">
 					         <source type="video/mp4" src="http://videos.appstep.tv/test-setup.mov">
 					      </video>
 					   </div>
@@ -108,14 +108,14 @@ if(1==1)
 				<section>
 					<h2>Coding Exercises : If</h2>
 					<p>
-						<div class="flowplayer color-light" data-engine="flash" data-swf="flowplayer/flowplayer.swf">
-					      <video>
+						<div class="flowplayer" data-engine="flash" data-swf="flowplayer/flowplayer.swf">
+					      <video preload="none">
 					         <source type="video/mp4" src="http://videos.appstep.tv/if-statement.mov">
 					      </video>
 					   </div>
 					</p>
 					<p>
-						<a href="https://github.com/pliablematter/appstep.tv/blob/04c4e093787c098a2d0998a3175fc87544fbb05d/stopwatch/stopwatchTests/stopwatchTests.m">Source File : stopwatch / stopwatchTests / stopwatchTests.m</a>
+						<a href="https://github.com/pliablematter/appstep.tv/blob/04c4e093787c098a2d0998a3175fc87544fbb05d/stopwatch/stopwatchTests/stopwatchTests.m" target="_blank">Source File : stopwatch / stopwatchTests / stopwatchTests.m</a>
 					</p>
 					<p>
 
@@ -162,14 +162,14 @@ else
 				<section>
 					<h2>Coding Exercises : If / Else</h2>
 					<p>
-						<div class="flowplayer color-light" data-engine="flash" data-swf="flowplayer/flowplayer.swf">
-					      <video>
+						<div class="flowplayer" data-engine="flash" data-swf="flowplayer/flowplayer.swf">
+					      <video preload="none">
 					         <source type="video/mp4" src="http://videos.appstep.tv/if-else.mov">
 					      </video>
 					   </div>
 					</p>
 					<p>
-						<a href="https://github.com/pliablematter/appstep.tv/blob/3270d52f57f89a5922bdb27e8741ffb77f8ad875/stopwatch/stopwatchTests/stopwatchTests.m">Source File : stopwatch / stopwatchTests / stopwatchTests.m</a>
+						<a href="https://github.com/pliablematter/appstep.tv/blob/3270d52f57f89a5922bdb27e8741ffb77f8ad875/stopwatch/stopwatchTests/stopwatchTests.m" target="_blank">Source File : stopwatch / stopwatchTests / stopwatchTests.m</a>
 					</p>
 					<p>
 
@@ -195,14 +195,14 @@ NSLog(@"The current temperature is %d degrees", temperature);
 				<section>
 					<h2>Coding Exercises : Variables</h2>
 					<p>
-						<div class="flowplayer color-light" data-engine="flash" data-swf="flowplayer/flowplayer.swf">
-					      <video>
+						<div class="flowplayer" data-engine="flash" data-swf="flowplayer/flowplayer.swf">
+					      <video preload="none">
 					         <source type="video/mp4" src="http://videos.appstep.tv/variables.mov">
 					      </video>
 					   </div>
 					</p>
 					<p>
-						<a href="https://github.com/pliablematter/appstep.tv/blob/4519e5e3c61cdfae8532989b002bbb010eac960c/stopwatch/stopwatchTests/stopwatchTests.m">Source File : stopwatch / stopwatchTests / stopwatchTests.m</a>
+						<a href="https://github.com/pliablematter/appstep.tv/blob/4519e5e3c61cdfae8532989b002bbb010eac960c/stopwatch/stopwatchTests/stopwatchTests.m" target="_blank">Source File : stopwatch / stopwatchTests / stopwatchTests.m</a>
 					</p>
 					<p>
 
@@ -221,7 +221,25 @@ NSLog(@"The current temperature is %d degrees", temperature);
 int temperature = 72;
 // Complex type
 NSString *units = @"fahrenheit";
+NSLog(@"The current temperature is %d degrees %@", temperature, units);
 					</code></pre>
+				</section>
+
+				<section>
+					<h2>Coding Exercises : More Variables</h2>
+					<p>
+						<div class="flowplayer" data-engine="flash" data-swf="flowplayer/flowplayer.swf">
+					      <video preload="none">
+					         <source type="video/mp4" src="http://videos.appstep.tv/more-variables.mov">
+					      </video>
+					   </div>
+					</p>
+					<p>
+						<a href="https://github.com/pliablematter/appstep.tv/blob/8da4767f850c9091730152d5eee989e102b30733/stopwatch/stopwatchTests/stopwatchTests.m" target="_blank">Source File : stopwatch / stopwatchTests / stopwatchTests.m</a>
+					</p>
+					<p>
+
+					</p>
 				</section>
 				
 				<section>
@@ -234,48 +252,125 @@ NSString *units = @"fahrenheit";
 						<li class="fragment">Reuse a series of commands multiple times</li>
 					</ul>
 					<pre class="fragment" style="margin-top: 40px;"><code data-trim contenteditable>
--(void) subtractJumpingMonkeys:(NSInteger)jumpingMonkeys fromBedMonkeys:(NSInteger)bedMonkeys
+- (void) logTemperature:(int)temperature inUnits:(NSString*)units
 {
-    NSLog(@"%d little monkeys jumping on the bed.", bedMonkeys);
-    NSString *plural = @"";
-    if(jumpingMonkeys > 1)
-    {
-        plural = @"s";
-    }
-    NSLog(@"%d fell off and bumped their head%@.", jumpingMonkeys, plural);
-    bedMonkeys = bedMonkeys - jumpingMonkeys;
-    NSLog(@"%d little monkeys jumping on the bed.", bedMonkeys);
+    NSLog(@"The current temperature is %d degrees %@", temperature, units);
 }
 					</code></pre>
 				</section>
 
 				<section>
-					<h2>Coding Exercises : More Functions</h2>
-
+					<h2>Coding Exercises : Functions</h2>
+					
 					<p>Calling a function</p>
-					<pre style="margin-top: 40px;"><code data-trim contenteditable>
-[self subtractJumpingMonkeys:1 fromBedMonkeys:10];
-[self subtractJumpingMonkeys:2 fromBedMonkeys:20];
-					</code></pre>
 
-					<ul style="margin-top: 40px;">
-						<li class="fragment">What does "self" mean?</li>
-						<li class="fragment">For now, lets just say that it means in the same code file that you're calling it from.</li>
+					<ul>
+						<li class="fragment">Give names to a series of commands</li>
+						<li class="fragment">Reuse a series of commands multiple times</li>
+					</ul>
+					<pre class="fragment" style="margin-top: 40px;"><code data-trim contenteditable>
+[self logTemperature:72 withUnits:@"fahrenheit"];
+[self logTemperature:32 withUnits:@"celsius"];
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Coding Exercises : Functions</h2>
+					<p>
+						<div class="flowplayer" data-engine="flash" data-swf="flowplayer/flowplayer.swf">
+					      <video preload="none">
+					         <source type="video/mp4" src="http://videos.appstep.tv/functions.mov">
+					      </video>
+					   </div>
+					</p>
+					<p>
+						<a href="https://github.com/pliablematter/appstep.tv/blob/38a3605b02a826367f401ffd4959ba7c85a90ffa/stopwatch/stopwatchTests/stopwatchTests.m" target="_blank">Source File : stopwatch / stopwatchTests / stopwatchTests.m</a>
+					</p>
+				</section>
+
+				<section>
+					<h2>Project Preparation : Master Detail Template</h2>
+					<p>
+						<div class="flowplayer" data-engine="flash" data-swf="flowplayer/flowplayer.swf">
+					      <video preload="none">
+					         <source type="video/mp4" src="http://videos.appstep.tv/master-detail.mov">
+					      </video>
+					   </div>
+					</p>
+				</section>
+
+				<section>
+					<h2>Project Preparation : Master Detail Code Cleanup</h2>
+					<p>
+						<div class="flowplayer" data-engine="flash" data-swf="flowplayer/flowplayer.swf">
+					      <video preload="none">
+					         <source type="video/mp4" src="http://videos.appstep.tv/master-detail-code-cleanup.mov">
+					      </video>
+					   </div>
+					</p>
+					<p>
+						<a href="https://github.com/pliablematter/appstep.tv/blob/4a21804e7eff9a29407a871fa3d7196d8e1ca39b/stopwatch/stopwatch/AppDelegate.m" target="_blank">Source File : stopwatch / stopwatch / AppDelegate.m</a>
+					</p>
+					
+				</section>
+
+				<section>
+					<h2>Project Preparation : Master Detail Code Cleanup</h2>
+					<p>
+						<div class="flowplayer" data-engine="flash" data-swf="flowplayer/flowplayer.swf">
+					      <video preload="none">
+					         <source type="video/mp4" src="http://videos.appstep.tv/master-detail-storyboard-cleanup.mov">
+					      </video>
+					   </div>
+					</p>
+				</section>
+
+				<section>
+					<h2>Stopwatch Storyboard : Stopwatch Label</h2>
+					<ul>
+						<li>Create a new ViewController for the stopwatch screen</li>
+						<li>Connect the NavigationController to the new ViewController</li>
+						<li>Add a Label for the stopwatch</li>
+						<li>Set the Label text to 00:00</li>
+						<li>Set the Label font to Helvetica Neue UltraLight</li>
+						<li>Set the font size to 112</li>
+						<li>Set the font color to Dark Gray</li>
 					</ul>
 				</section>
 
-
 				<section>
-					<h2>Coding Exercises : Messaging Objects</h2>
-					<p>TODO</p>
+					<h2>Stopwatch Storyboard : Stopwatch Label</h2>
+					<p>
+						<div class="flowplayer" data-engine="flash" data-swf="flowplayer/flowplayer.swf">
+					      <video preload="none">
+					         <source type="video/mp4" src="http://videos.appstep.tv/stopwatch-label.mov">
+					      </video>
+					   </div>
+					</p>
 				</section>
 
+				<section>
+					<h2>Stopwatch Storyboard : Stopwatch Buttons</h2>
+					<ul>
+						<li>Drag 3 Buttons to the view and name them Reset, Start and Save</li>
+						<li>Make each button 106 pixels wide</li>
+						<li>Place the Reset Button on the left, Start in the middle, and Save on the left</li>
+						<li>Align all 3 buttons vertically</li>
+						<li>Set the Alpha (Transparency) of the Rest and Save buttons to .35</li>
+						<li>Center the Stopwatch Label and Buttons vertically as a whole</li>
+					</ul>
+				</section>
 
-
-
-
-
-
+				<section>
+					<h2>Stopwatch Storyboard : Stopwatch Buttons</h2>
+					<p>
+						<div class="flowplayer" data-engine="flash" data-swf="flowplayer/flowplayer.swf">
+					      <video preload="none">
+					         <source type="video/mp4" src="http://videos.appstep.tv/stopwatch-buttons.mov">
+					      </video>
+					   </div>
+					</p>
+				</section>
 
 				<section>
 					<h2>Heads Up</h2>
