@@ -37,6 +37,10 @@
     {
         NSLog(@"Goodbye");
     }
+    
+    // Variables
+    int temperature = 74;
+    NSLog(@"The current temperature is %d degrees", temperature);
 }
 
 @end
