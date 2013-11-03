@@ -8,8 +8,6 @@
 
 #import "AppDelegate.h"
 
-#import "MasterViewController.h"
-
 @implementation AppDelegate
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -19,9 +17,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
-    MasterViewController *controller = (MasterViewController *)navigationController.topViewController;
-    controller.managedObjectContext = self.managedObjectContext;
     return YES;
 }
 							

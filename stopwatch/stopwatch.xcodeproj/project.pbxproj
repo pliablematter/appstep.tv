@@ -16,8 +16,6 @@
 		910B70E51824FD4600FB60F3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 910B70E41824FD4600FB60F3 /* AppDelegate.m */; };
 		910B70E81824FD4600FB60F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 910B70E61824FD4600FB60F3 /* Main.storyboard */; };
 		910B70EB1824FD4600FB60F3 /* stopwatch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 910B70E91824FD4600FB60F3 /* stopwatch.xcdatamodeld */; };
-		910B70EE1824FD4600FB60F3 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 910B70ED1824FD4600FB60F3 /* MasterViewController.m */; };
-		910B70F11824FD4600FB60F3 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 910B70F01824FD4600FB60F3 /* DetailViewController.m */; };
 		910B70F31824FD4600FB60F3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 910B70F21824FD4600FB60F3 /* Images.xcassets */; };
 		910B70FA1824FD4600FB60F3 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 910B70F91824FD4600FB60F3 /* XCTest.framework */; };
 		910B70FB1824FD4600FB60F3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 910B70D21824FD4600FB60F3 /* Foundation.framework */; };
@@ -51,10 +49,6 @@
 		910B70E41824FD4600FB60F3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		910B70E71824FD4600FB60F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		910B70EA1824FD4600FB60F3 /* stopwatch.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = stopwatch.xcdatamodel; sourceTree = "<group>"; };
-		910B70EC1824FD4600FB60F3 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		910B70ED1824FD4600FB60F3 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		910B70EF1824FD4600FB60F3 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		910B70F01824FD4600FB60F3 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		910B70F21824FD4600FB60F3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		910B70F81824FD4600FB60F3 /* stopwatchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = stopwatchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		910B70F91824FD4600FB60F3 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -126,10 +120,6 @@
 				910B70E31824FD4600FB60F3 /* AppDelegate.h */,
 				910B70E41824FD4600FB60F3 /* AppDelegate.m */,
 				910B70E61824FD4600FB60F3 /* Main.storyboard */,
-				910B70EC1824FD4600FB60F3 /* MasterViewController.h */,
-				910B70ED1824FD4600FB60F3 /* MasterViewController.m */,
-				910B70EF1824FD4600FB60F3 /* DetailViewController.h */,
-				910B70F01824FD4600FB60F3 /* DetailViewController.m */,
 				910B70F21824FD4600FB60F3 /* Images.xcassets */,
 				910B70E91824FD4600FB60F3 /* stopwatch.xcdatamodeld */,
 				910B70DB1824FD4600FB60F3 /* Supporting Files */,
@@ -263,8 +253,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				910B70F11824FD4600FB60F3 /* DetailViewController.m in Sources */,
-				910B70EE1824FD4600FB60F3 /* MasterViewController.m in Sources */,
 				910B70E51824FD4600FB60F3 /* AppDelegate.m in Sources */,
 				910B70E11824FD4600FB60F3 /* main.m in Sources */,
 				910B70EB1824FD4600FB60F3 /* stopwatch.xcdatamodeld in Sources */,
@@ -476,6 +464,7 @@
 				910B710C1824FD4600FB60F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		910B710D1824FD4600FB60F3 /* Build configuration list for PBXNativeTarget "stopwatchTests" */ = {
 			isa = XCConfigurationList;
@@ -484,6 +473,7 @@
 				910B710F1824FD4600FB60F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
