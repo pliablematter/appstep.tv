@@ -19,10 +19,10 @@
             </objects>
             <point key="canvasLocation" x="167" y="40"/>
         </scene>
-        <!--View Controller-->
+        <!--Stopwatch View Controller-->
         <scene sceneID="YHe-aW-k1W">
             <objects>
-                <viewController id="KKJ-uD-y9d" sceneMemberID="viewController">
+                <viewController id="KKJ-uD-y9d" customClass="StopwatchViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Q27-l7-Saf"/>
                         <viewControllerLayoutGuide type="bottom" id="NUd-BQ-CoW"/>
@@ -44,6 +44,9 @@
                                 <state key="normal" title="Start">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="startButtonTapped:" destination="KKJ-uD-y9d" eventType="touchUpInside" id="H19-tR-yeC"/>
+                                </connections>
                             </button>
                             <button opaque="NO" alpha="0.34999999999999998" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mkc-Qt-X6A">
                                 <rect key="frame" x="13" y="307" width="106" height="30"/>
@@ -51,6 +54,9 @@
                                 <state key="normal" title="Reset">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="resetButtonTapped:" destination="KKJ-uD-y9d" eventType="touchUpInside" id="B51-Iu-RcI"/>
+                                </connections>
                             </button>
                             <button opaque="NO" alpha="0.34999999999999998" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kb4-4J-BvA">
                                 <rect key="frame" x="198" y="307" width="106" height="30"/>
@@ -58,11 +64,20 @@
                                 <state key="normal" title="Save">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="saveButtonTapped:" destination="KKJ-uD-y9d" eventType="touchUpInside" id="L7v-YS-kJo"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="3gD-LA-WtH"/>
+                    <connections>
+                        <outlet property="resetButton" destination="mkc-Qt-X6A" id="wDh-XX-VYX"/>
+                        <outlet property="saveButton" destination="Kb4-4J-BvA" id="DLB-d0-TTx"/>
+                        <outlet property="startButton" destination="8H6-13-eFI" id="pDx-c2-ZA2"/>
+                        <outlet property="stopwatchLabel" destination="Rxh-dQ-4VB" id="uZ7-fy-q8b"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5S7-w0-EnJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -23,6 +23,7 @@
 		910B70FD1824FD4600FB60F3 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 910B70D81824FD4600FB60F3 /* CoreData.framework */; };
 		910B71051824FD4600FB60F3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 910B71031824FD4600FB60F3 /* InfoPlist.strings */; };
 		910B71071824FD4600FB60F3 /* stopwatchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 910B71061824FD4600FB60F3 /* stopwatchTests.m */; };
+		91F62CAF1826F2C900403F45 /* StopwatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91F62CAE1826F2C900403F45 /* StopwatchViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		910B71021824FD4600FB60F3 /* stopwatchTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "stopwatchTests-Info.plist"; sourceTree = "<group>"; };
 		910B71041824FD4600FB60F3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		910B71061824FD4600FB60F3 /* stopwatchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = stopwatchTests.m; sourceTree = "<group>"; };
+		91F62CAD1826F2C900403F45 /* StopwatchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopwatchViewController.h; sourceTree = "<group>"; };
+		91F62CAE1826F2C900403F45 /* StopwatchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopwatchViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +126,8 @@
 				910B70F21824FD4600FB60F3 /* Images.xcassets */,
 				910B70E91824FD4600FB60F3 /* stopwatch.xcdatamodeld */,
 				910B70DB1824FD4600FB60F3 /* Supporting Files */,
+				91F62CAD1826F2C900403F45 /* StopwatchViewController.h */,
+				91F62CAE1826F2C900403F45 /* StopwatchViewController.m */,
 			);
 			path = stopwatch;
 			sourceTree = "<group>";
@@ -253,6 +258,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91F62CAF1826F2C900403F45 /* StopwatchViewController.m in Sources */,
 				910B70E51824FD4600FB60F3 /* AppDelegate.m in Sources */,
 				910B70E11824FD4600FB60F3 /* main.m in Sources */,
 				910B70EB1824FD4600FB60F3 /* stopwatch.xcdatamodeld in Sources */,
