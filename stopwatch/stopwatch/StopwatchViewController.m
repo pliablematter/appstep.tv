@@ -7,6 +7,8 @@
 //
 
 #import "StopwatchViewController.h"
+#import "AppDelegate.h"
+#import "Event.h"
 
 @interface StopwatchViewController ()
 
@@ -99,6 +101,12 @@
 }
 
 - (IBAction)saveButtonTapped:(id)sender {
+    UIApplication *app = [UIApplication sharedApplication];
+    AppDelegate *delegate = app.delegate;
+    Event *event = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:delegate.managedObjectContext];
+    event.timeStamp = [NSDate date];
+    event.elapsedTime = [NSNumber numberWithDouble:_elapsedTime];
+    [delegate saveContext];
 }
 
 - (void) tick
