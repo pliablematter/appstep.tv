@@ -37,6 +37,11 @@
 }
 
 - (IBAction)resetButtonTapped:(id)sender {
+    
+    _elapsedTime = 0;
+    _timer = nil;
+    self.stopwatchLabel.text = [self timeIntervalToMinutesAndSeconds:0];
+    [self disableResetButton];
 }
 
 - (IBAction)startButtonTapped:(id)sender {
@@ -55,6 +60,7 @@
     _startTime = [NSDate date];
     _timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(tick) userInfo:nil repeats:YES];
     [_timer fire];
+    [self disableResetButton];
 }
 
 - (void) stop
@@ -62,6 +68,19 @@
     [self.startButton setTitle:@"Start" forState:UIControlStateNormal];
     [_timer invalidate];
     _elapsedTime += abs([_startTime timeIntervalSinceNow]);
+    [self enableResetButton];
+}
+
+- (void) enableResetButton
+{
+    self.resetButton.userInteractionEnabled = YES;
+    self.resetButton.alpha = 1.0;
+}
+
+- (void) disableResetButton
+{
+    self.resetButton.userInteractionEnabled = NO;
+    self.resetButton.alpha = .35;
 }
 
 - (IBAction)saveButtonTapped:(id)sender {
