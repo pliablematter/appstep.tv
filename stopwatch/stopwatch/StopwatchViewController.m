@@ -41,19 +41,27 @@
 
 - (IBAction)startButtonTapped:(id)sender {
     if ([self.startButton.titleLabel.text isEqualToString:@"Start"]) {
-        [self.startButton setTitle:@"Stop" forState:UIControlStateNormal];
-        
-        _startTime = [NSDate date];
-        
-        _timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(tick) userInfo:nil repeats:YES];
-        [_timer fire];
+        [self start];
     }
     else
     {
-        [self.startButton setTitle:@"Start" forState:UIControlStateNormal];
-        [_timer invalidate];
-        _elapsedTime += abs([_startTime timeIntervalSinceNow]);
+        [self stop];
     }
+}
+
+- (void) start
+{
+    [self.startButton setTitle:@"Stop" forState:UIControlStateNormal];
+    _startTime = [NSDate date];
+    _timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(tick) userInfo:nil repeats:YES];
+    [_timer fire];
+}
+
+- (void) stop
+{
+    [self.startButton setTitle:@"Start" forState:UIControlStateNormal];
+    [_timer invalidate];
+    _elapsedTime += abs([_startTime timeIntervalSinceNow]);
 }
 
 - (IBAction)saveButtonTapped:(id)sender {
