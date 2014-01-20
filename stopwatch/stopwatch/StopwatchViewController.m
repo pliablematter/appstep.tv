@@ -26,6 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _elapsedTime = 0;
 	// Do any additional setup after loading the view.
 }
 
@@ -51,6 +52,7 @@
     {
         [self.startButton setTitle:@"Start" forState:UIControlStateNormal];
         [_timer invalidate];
+        _elapsedTime += abs([_startTime timeIntervalSinceNow]);
     }
 }
 
@@ -60,7 +62,8 @@
 - (void) tick
 {
     NSTimeInterval interval = abs([_startTime timeIntervalSinceNow]);
-    self.stopwatchLabel.text = [self timeIntervalToMinutesAndSeconds:interval];
+    NSTimeInterval adjustedInterval = interval + _elapsedTime;
+    self.stopwatchLabel.text = [self timeIntervalToMinutesAndSeconds:adjustedInterval];
     NSLog(@"tick %f", interval);
 }
 
