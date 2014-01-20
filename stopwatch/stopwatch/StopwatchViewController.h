@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface StopwatchViewController : UIViewController
+@interface StopwatchViewController : UIViewController {
+    NSDate *_startTime;
+}
 
 @property (weak, nonatomic) IBOutlet UILabel *stopwatchLabel;
 @property (weak, nonatomic) IBOutlet UIButton *resetButton;

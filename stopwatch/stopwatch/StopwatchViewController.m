@@ -41,6 +41,9 @@
 - (IBAction)startButtonTapped:(id)sender {
     if ([self.startButton.titleLabel.text isEqualToString:@"Start"]) {
         [self.startButton setTitle:@"Stop" forState:UIControlStateNormal];
+        
+        _startTime = [NSDate date];
+        
         NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(tick) userInfo:nil repeats:YES];
         [timer fire];
     }
@@ -55,6 +58,7 @@
 
 - (void) tick
 {
-    NSLog(@"tick");
+    NSTimeInterval interval = abs([_startTime timeIntervalSinceNow]);
+    NSLog(@"tick %f", interval);
 }
 @end
