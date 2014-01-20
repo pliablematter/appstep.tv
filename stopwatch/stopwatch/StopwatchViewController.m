@@ -59,6 +59,16 @@
 - (void) tick
 {
     NSTimeInterval interval = abs([_startTime timeIntervalSinceNow]);
+    self.stopwatchLabel.text = [self timeIntervalToMinutesAndSeconds:interval];
     NSLog(@"tick %f", interval);
 }
+
+- (NSString*) timeIntervalToMinutesAndSeconds:(int)timeInterval
+{
+    int minutes = floor(timeInterval / 60);
+    int seconds = timeInterval % 60;
+    
+    return [NSString stringWithFormat:@"%02d:%02d", minutes, seconds];
+}
+
 @end
