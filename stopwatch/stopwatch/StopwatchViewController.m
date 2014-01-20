@@ -42,6 +42,7 @@
     _timer = nil;
     self.stopwatchLabel.text = [self timeIntervalToMinutesAndSeconds:0];
     [self disableResetButton];
+    [self disableSaveButton];
 }
 
 - (IBAction)startButtonTapped:(id)sender {
@@ -61,6 +62,7 @@
     _timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(tick) userInfo:nil repeats:YES];
     [_timer fire];
     [self disableResetButton];
+    [self disableSaveButton];
 }
 
 - (void) stop
@@ -69,6 +71,7 @@
     [_timer invalidate];
     _elapsedTime += abs([_startTime timeIntervalSinceNow]);
     [self enableResetButton];
+    [self enableSaveButton];
 }
 
 - (void) enableResetButton
@@ -81,6 +84,18 @@
 {
     self.resetButton.userInteractionEnabled = NO;
     self.resetButton.alpha = .35;
+}
+
+- (void) enableSaveButton
+{
+    self.saveButton.userInteractionEnabled = YES;
+    self.saveButton.alpha = 1.0;
+}
+
+- (void) disableSaveButton
+{
+    self.saveButton.userInteractionEnabled = NO;
+    self.saveButton.alpha = .35;
 }
 
 - (IBAction)saveButtonTapped:(id)sender {
