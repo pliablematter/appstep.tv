@@ -44,12 +44,13 @@
         
         _startTime = [NSDate date];
         
-        NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(tick) userInfo:nil repeats:YES];
-        [timer fire];
+        _timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(tick) userInfo:nil repeats:YES];
+        [_timer fire];
     }
     else
     {
         [self.startButton setTitle:@"Start" forState:UIControlStateNormal];
+        [_timer invalidate];
     }
 }
 

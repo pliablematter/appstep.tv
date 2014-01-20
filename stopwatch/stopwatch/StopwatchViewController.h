@@ -10,6 +10,7 @@
 
 @interface StopwatchViewController : UIViewController {
     NSDate *_startTime;
+    NSTimer *_timer;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *stopwatchLabel;
