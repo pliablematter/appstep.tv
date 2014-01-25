@@ -7,6 +7,8 @@
 //
 
 #import "StopwatchViewController.h"
+#import "AppDelegate.h"
+#import "Event.h"
 
 @interface StopwatchViewController ()
 
@@ -26,6 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _elapsedTime = 0;
 	// Do any additional setup after loading the view.
 }
 
@@ -36,18 +39,90 @@
 }
 
 - (IBAction)resetButtonTapped:(id)sender {
+    
+    _elapsedTime = 0;
+    _timer = nil;
+    self.stopwatchLabel.text = [self timeIntervalToMinutesAndSeconds:0];
+    [self disableResetButton];
+    [self disableSaveButton];
 }
 
 - (IBAction)startButtonTapped:(id)sender {
     if ([self.startButton.titleLabel.text isEqualToString:@"Start"]) {
-        [self.startButton setTitle:@"Stop" forState:UIControlStateNormal];
+        [self start];
     }
     else
     {
-        [self.startButton setTitle:@"Start" forState:UIControlStateNormal];
+        [self stop];
     }
 }
 
-- (IBAction)saveButtonTapped:(id)sender {
+- (void) start
+{
+    [self.startButton setTitle:@"Stop" forState:UIControlStateNormal];
+    _startTime = [NSDate date];
+    _timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(tick) userInfo:nil repeats:YES];
+    [_timer fire];
+    [self disableResetButton];
+    [self disableSaveButton];
 }
+
+- (void) stop
+{
+    [self.startButton setTitle:@"Start" forState:UIControlStateNormal];
+    [_timer invalidate];
+    _elapsedTime += abs([_startTime timeIntervalSinceNow]);
+    [self enableResetButton];
+    [self enableSaveButton];
+}
+
+- (void) enableResetButton
+{
+    self.resetButton.userInteractionEnabled = YES;
+    self.resetButton.alpha = 1.0;
+}
+
+- (void) disableResetButton
+{
+    self.resetButton.userInteractionEnabled = NO;
+    self.resetButton.alpha = .35;
+}
+
+- (void) enableSaveButton
+{
+    self.saveButton.userInteractionEnabled = YES;
+    self.saveButton.alpha = 1.0;
+}
+
+- (void) disableSaveButton
+{
+    self.saveButton.userInteractionEnabled = NO;
+    self.saveButton.alpha = .35;
+}
+
+- (IBAction)saveButtonTapped:(id)sender {
+    UIApplication *app = [UIApplication sharedApplication];
+    AppDelegate *delegate = app.delegate;
+    Event *event = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:delegate.managedObjectContext];
+    event.timeStamp = [NSDate date];
+    event.elapsedTime = [NSNumber numberWithDouble:_elapsedTime];
+    [delegate saveContext];
+}
+
+- (void) tick
+{
+    NSTimeInterval interval = abs([_startTime timeIntervalSinceNow]);
+    NSTimeInterval adjustedInterval = interval + _elapsedTime;
+    self.stopwatchLabel.text = [self timeIntervalToMinutesAndSeconds:adjustedInterval];
+    NSLog(@"tick %f", interval);
+}
+
+- (NSString*) timeIntervalToMinutesAndSeconds:(int)timeInterval
+{
+    int minutes = floor(timeInterval / 60);
+    int seconds = timeInterval % 60;
+    
+    return [NSString stringWithFormat:@"%02d:%02d", minutes, seconds];
+}
+
 @end
