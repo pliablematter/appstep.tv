@@ -24,6 +24,8 @@
 		910B71051824FD4600FB60F3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 910B71031824FD4600FB60F3 /* InfoPlist.strings */; };
 		910B71071824FD4600FB60F3 /* stopwatchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 910B71061824FD4600FB60F3 /* stopwatchTests.m */; };
 		91DC1910188D68AE00FCF39F /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DC190F188D68AE00FCF39F /* Event.m */; };
+		91F1B2ED189434FA0057053E /* SavedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91F1B2EC189434FA0057053E /* SavedTableViewController.m */; };
+		91F1B2F0189435460057053E /* SavedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 91F1B2EF189435460057053E /* SavedTableViewCell.m */; };
 		91F62CAF1826F2C900403F45 /* StopwatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91F62CAE1826F2C900403F45 /* StopwatchViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +61,10 @@
 		910B71061824FD4600FB60F3 /* stopwatchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = stopwatchTests.m; sourceTree = "<group>"; };
 		91DC190E188D68AE00FCF39F /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		91DC190F188D68AE00FCF39F /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		91F1B2EB189434FA0057053E /* SavedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedTableViewController.h; sourceTree = "<group>"; };
+		91F1B2EC189434FA0057053E /* SavedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedTableViewController.m; sourceTree = "<group>"; };
+		91F1B2EE189435460057053E /* SavedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedTableViewCell.h; sourceTree = "<group>"; };
+		91F1B2EF189435460057053E /* SavedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedTableViewCell.m; sourceTree = "<group>"; };
 		91F62CAD1826F2C900403F45 /* StopwatchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopwatchViewController.h; sourceTree = "<group>"; };
 		91F62CAE1826F2C900403F45 /* StopwatchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopwatchViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,6 +139,10 @@
 				91F62CAE1826F2C900403F45 /* StopwatchViewController.m */,
 				91DC190E188D68AE00FCF39F /* Event.h */,
 				91DC190F188D68AE00FCF39F /* Event.m */,
+				91F1B2EB189434FA0057053E /* SavedTableViewController.h */,
+				91F1B2EC189434FA0057053E /* SavedTableViewController.m */,
+				91F1B2EE189435460057053E /* SavedTableViewCell.h */,
+				91F1B2EF189435460057053E /* SavedTableViewCell.m */,
 			);
 			path = stopwatch;
 			sourceTree = "<group>";
@@ -266,6 +276,8 @@
 				91F62CAF1826F2C900403F45 /* StopwatchViewController.m in Sources */,
 				910B70E51824FD4600FB60F3 /* AppDelegate.m in Sources */,
 				91DC1910188D68AE00FCF39F /* Event.m in Sources */,
+				91F1B2F0189435460057053E /* SavedTableViewCell.m in Sources */,
+				91F1B2ED189434FA0057053E /* SavedTableViewController.m in Sources */,
 				910B70E11824FD4600FB60F3 /* main.m in Sources */,
 				910B70EB1824FD4600FB60F3 /* stopwatch.xcdatamodeld in Sources */,
 			);
