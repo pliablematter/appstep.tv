@@ -7,6 +7,9 @@
 //
 
 #import "SavedTableViewController.h"
+#import "Event.h"
+#import "SavedTableViewCell.h"
+#import "Utils.h"
 
 @interface SavedTableViewController ()
 
@@ -32,6 +35,13 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    UIApplication *app = [UIApplication sharedApplication];
+    _appDelegate = app.delegate;
+    
+    _dateFormatter = [[NSDateFormatter alloc] init];
+    [_dateFormatter setDateFormat:@"M/d/yy HH:mm a"];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,24 +54,26 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    NSArray *events = [self getEvents];
+    NSInteger count = [events count];
+    return count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"savedCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    // Configure the cell...
+    Event *event = [[self getEvents] objectAtIndex:indexPath.row];
+    
+    SavedTableViewCell *savedCell = (SavedTableViewCell*) cell;
+    savedCell.elapsedTimeLabel.text = [Utils timeIntervalToMinutesAndSeconds:[event.elapsedTime integerValue]];
+    savedCell.dateTimeLabel.text = [_dateFormatter stringFromDate:event.timeStamp];
     
     return cell;
 }
@@ -116,5 +128,18 @@
 }
 
  */
+
+- (NSArray*) getEvents {
+    NSFetchRequest *fetch = [NSFetchRequest fetchRequestWithEntityName:@"Event"];
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"timeStamp" ascending:NO];
+    [fetch setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+    
+    NSError *error;
+    NSArray *times = [_appDelegate.managedObjectContext executeFetchRequest:fetch error:&error];
+    if(error) {
+        NSLog(@"There was an error while fetching saved time. %@", error.description);
+    }
+    return times;
+}
 
 @end
