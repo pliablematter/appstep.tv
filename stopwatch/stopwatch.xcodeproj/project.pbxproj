@@ -27,6 +27,11 @@
 		91F1B2ED189434FA0057053E /* SavedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91F1B2EC189434FA0057053E /* SavedTableViewController.m */; };
 		91F1B2F0189435460057053E /* SavedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 91F1B2EF189435460057053E /* SavedTableViewCell.m */; };
 		91F1B2F3189449570057053E /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 91F1B2F2189449570057053E /* Utils.m */; };
+		91F1B2F9189453B40057053E /* Icon-29@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 91F1B2F4189453B40057053E /* Icon-29@2x.png */; };
+		91F1B2FA189453B40057053E /* Icon-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 91F1B2F5189453B40057053E /* Icon-40@2x.png */; };
+		91F1B2FB189453B40057053E /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 91F1B2F6189453B40057053E /* Icon-60@2x.png */; };
+		91F1B2FC189453B40057053E /* Launch-R4.png in Resources */ = {isa = PBXBuildFile; fileRef = 91F1B2F7189453B40057053E /* Launch-R4.png */; };
+		91F1B2FD189453B40057053E /* Launch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 91F1B2F8189453B40057053E /* Launch@2x.png */; };
 		91F62CAF1826F2C900403F45 /* StopwatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91F62CAE1826F2C900403F45 /* StopwatchViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +73,11 @@
 		91F1B2EF189435460057053E /* SavedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedTableViewCell.m; sourceTree = "<group>"; };
 		91F1B2F1189449570057053E /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		91F1B2F2189449570057053E /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		91F1B2F4189453B40057053E /* Icon-29@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-29@2x.png"; sourceTree = "<group>"; };
+		91F1B2F5189453B40057053E /* Icon-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40@2x.png"; sourceTree = "<group>"; };
+		91F1B2F6189453B40057053E /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
+		91F1B2F7189453B40057053E /* Launch-R4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Launch-R4.png"; sourceTree = "<group>"; };
+		91F1B2F8189453B40057053E /* Launch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Launch@2x.png"; sourceTree = "<group>"; };
 		91F62CAD1826F2C900403F45 /* StopwatchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopwatchViewController.h; sourceTree = "<group>"; };
 		91F62CAE1826F2C900403F45 /* StopwatchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopwatchViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -132,6 +142,11 @@
 		910B70DA1824FD4600FB60F3 /* stopwatch */ = {
 			isa = PBXGroup;
 			children = (
+				91F1B2F4189453B40057053E /* Icon-29@2x.png */,
+				91F1B2F5189453B40057053E /* Icon-40@2x.png */,
+				91F1B2F6189453B40057053E /* Icon-60@2x.png */,
+				91F1B2F7189453B40057053E /* Launch-R4.png */,
+				91F1B2F8189453B40057053E /* Launch@2x.png */,
 				910B70E31824FD4600FB60F3 /* AppDelegate.h */,
 				910B70E41824FD4600FB60F3 /* AppDelegate.m */,
 				910B70E61824FD4600FB60F3 /* Main.storyboard */,
@@ -257,9 +272,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91F1B2FC189453B40057053E /* Launch-R4.png in Resources */,
+				91F1B2F9189453B40057053E /* Icon-29@2x.png in Resources */,
 				910B70F31824FD4600FB60F3 /* Images.xcassets in Resources */,
 				910B70DF1824FD4600FB60F3 /* InfoPlist.strings in Resources */,
 				910B70E81824FD4600FB60F3 /* Main.storyboard in Resources */,
+				91F1B2FD189453B40057053E /* Launch@2x.png in Resources */,
+				91F1B2FA189453B40057053E /* Icon-40@2x.png in Resources */,
+				91F1B2FB189453B40057053E /* Icon-60@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
