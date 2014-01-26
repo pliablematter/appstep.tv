@@ -24,7 +24,8 @@
 		910B71051824FD4600FB60F3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 910B71031824FD4600FB60F3 /* InfoPlist.strings */; };
 		910B71071824FD4600FB60F3 /* stopwatchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 910B71061824FD4600FB60F3 /* stopwatchTests.m */; };
 		91EB6A5218954EF5003BEE93 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91EB6A5118954EF5003BEE93 /* CoreLocation.framework */; };
-		91EB6A5B18955810003BEE93 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 91EB6A5A18955810003BEE93 /* Event.m */; };
+		91EB6A611895AC08003BEE93 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 91EB6A601895AC08003BEE93 /* Event.m */; };
+		91EB6A641895ADA3003BEE93 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91EB6A631895ADA3003BEE93 /* ImageViewController.m */; };
 		91F1B2ED189434FA0057053E /* SavedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91F1B2EC189434FA0057053E /* SavedTableViewController.m */; };
 		91F1B2F0189435460057053E /* SavedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 91F1B2EF189435460057053E /* SavedTableViewCell.m */; };
 		91F1B2F3189449570057053E /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 91F1B2F2189449570057053E /* Utils.m */; };
@@ -67,8 +68,10 @@
 		910B71041824FD4600FB60F3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		910B71061824FD4600FB60F3 /* stopwatchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = stopwatchTests.m; sourceTree = "<group>"; };
 		91EB6A5118954EF5003BEE93 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		91EB6A5918955810003BEE93 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
-		91EB6A5A18955810003BEE93 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		91EB6A5F1895AC08003BEE93 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		91EB6A601895AC08003BEE93 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		91EB6A621895ADA3003BEE93 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
+		91EB6A631895ADA3003BEE93 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
 		91F1B2EB189434FA0057053E /* SavedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedTableViewController.h; sourceTree = "<group>"; };
 		91F1B2EC189434FA0057053E /* SavedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedTableViewController.m; sourceTree = "<group>"; };
 		91F1B2EE189435460057053E /* SavedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedTableViewCell.h; sourceTree = "<group>"; };
@@ -165,8 +168,10 @@
 				91F1B2EF189435460057053E /* SavedTableViewCell.m */,
 				91F1B2F1189449570057053E /* Utils.h */,
 				91F1B2F2189449570057053E /* Utils.m */,
-				91EB6A5918955810003BEE93 /* Event.h */,
-				91EB6A5A18955810003BEE93 /* Event.m */,
+				91EB6A5F1895AC08003BEE93 /* Event.h */,
+				91EB6A601895AC08003BEE93 /* Event.m */,
+				91EB6A621895ADA3003BEE93 /* ImageViewController.h */,
+				91EB6A631895ADA3003BEE93 /* ImageViewController.m */,
 			);
 			path = stopwatch;
 			sourceTree = "<group>";
@@ -306,8 +311,9 @@
 				910B70E51824FD4600FB60F3 /* AppDelegate.m in Sources */,
 				91F1B2F3189449570057053E /* Utils.m in Sources */,
 				91F1B2F0189435460057053E /* SavedTableViewCell.m in Sources */,
-				91EB6A5B18955810003BEE93 /* Event.m in Sources */,
+				91EB6A611895AC08003BEE93 /* Event.m in Sources */,
 				91F1B2ED189434FA0057053E /* SavedTableViewController.m in Sources */,
+				91EB6A641895ADA3003BEE93 /* ImageViewController.m in Sources */,
 				910B70E11824FD4600FB60F3 /* main.m in Sources */,
 				910B70EB1824FD4600FB60F3 /* stopwatch.xcdatamodeld in Sources */,
 			);

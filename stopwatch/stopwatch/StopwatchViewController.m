@@ -36,6 +36,15 @@
     _locationManager.delegate = self;
     
     _geocoder = [[CLGeocoder alloc] init];
+    
+    _actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"No Photo" destructiveButtonTitle:nil otherButtonTitles:@"Add Photo", nil];
+    
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+    {
+        _cameraUi = [[UIImagePickerController alloc] init];
+        _cameraUi.sourceType = UIImagePickerControllerSourceTypeCamera;
+        _cameraUi.delegate = self;
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -107,10 +116,25 @@
 }
 
 - (IBAction)saveButtonTapped:(id)sender {
+    
+    if(_cameraUi)
+    {
+        // If a camera is available, then offer the option of adding a picture
+        [_actionSheet showInView:self.view];
+    }
+    else
+    {
+        // If a camera isn't available, then just save
+        [self startSave];
+    }
+}
+
+- (void) startSave
+{
     [_locationManager startUpdatingLocation];
 }
 
-- (void) save
+- (void) finishSave
 {
     UIApplication *app = [UIApplication sharedApplication];
     AppDelegate *delegate = app.delegate;
@@ -118,6 +142,7 @@
     event.timeStamp = [NSDate date];
     event.elapsedTime = [NSNumber numberWithDouble:_elapsedTime];
     event.locationName = _locationName;
+    event.imageName = _imageName;
     [delegate saveContext];
     [self disableSaveButton];
 
@@ -141,6 +166,8 @@
         if(location.horizontalAccuracy >= _locationManager.desiredAccuracy
            && [location.timestamp timeIntervalSinceNow] < 60)
         {
+            [_locationManager stopUpdatingLocation];
+            
             // Get the location name
             [_geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
                 if(!error)
@@ -154,7 +181,7 @@
                     _locationName = nil;
                 }
             }];
-            [self save];
+            [self finishSave];
         }
     }
 }
@@ -163,7 +190,55 @@
 {
     [_locationManager stopUpdatingLocation];
     _locationName = nil;
-    [self save];
+    [self finishSave];
+}
+
+/* UIActionSheetDelegate */
+
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 0)
+    {
+        // Add photo
+        [self presentViewController:_cameraUi animated:YES completion:nil];
+    }
+    else
+    {
+        // Don't add photo
+        _imageName = nil;
+        [self startSave];
+    }
+}
+
+/* UIImagePickerControllerDelegate */
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    [_cameraUi dismissViewControllerAnimated:YES completion:nil];
+    
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    
+    // Get the documents directory
+    NSFileManager *fileManager = [[NSFileManager alloc] init];
+    NSArray *urls = [fileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
+    
+    // Generate an image filename
+    NSString *uuid = [[NSUUID UUID] UUIDString];
+    NSString *imageName = [NSString stringWithFormat:@"%@.png", uuid];
+    
+    NSString *imagePath = [NSString stringWithFormat:@"%@%@", urls[0], imageName];
+    NSLog(@"save imagePath: %@", imagePath);
+    
+    NSData *png = UIImagePNGRepresentation(image);
+    [png writeToFile:imagePath atomically:YES];
+    
+    _imageName = imageName;
+    
+    [self startSave];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [self startSave];
 }
 
 @end

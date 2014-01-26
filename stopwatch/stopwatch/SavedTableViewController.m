@@ -10,6 +10,7 @@
 #import "Event.h"
 #import "SavedTableViewCell.h"
 #import "Utils.h"
+#import "ImageViewController.h"
 
 @interface SavedTableViewController ()
 
@@ -41,6 +42,8 @@
     
     _dateFormatter = [[NSDateFormatter alloc] init];
     [_dateFormatter setDateFormat:@"M/d/yy HH:mm a"];
+    
+    
     
 }
 
@@ -76,6 +79,15 @@
     savedCell.dateTimeLabel.text = [_dateFormatter stringFromDate:event.timeStamp];
     savedCell.locationNameLabel.text = event.locationName;
     
+    if(event.imageName)
+    {
+        savedCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
+    else
+    {
+        savedCell.accessoryType = UITableViewCellAccessoryNone;
+    }
+    
     return cell;
 }
 
@@ -96,33 +108,41 @@
     }
 }
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [self performSegueWithIdentifier:@"imageSegue" sender:nil];
 }
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
+    
+    // Only segue if the selected row has a disclosure indicator
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:self.tableView.indexPathForSelectedRow];
+    return (cell.accessoryType == UITableViewCellAccessoryDisclosureIndicator);
 }
-*/
 
-/*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    // Get the documents directory
+    NSFileManager *fileManager = [[NSFileManager alloc] init];
+    NSArray *urls = [fileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
+ 
+    // Get the image name from the event in the selected row
+    NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
+    Event *event = [[self getEvents] objectAtIndex:indexPath.row];
+    
+    // Get the full image path
+    NSString *imagePath = [NSString stringWithFormat:@"%@%@", urls[0], event.imageName];
+    
+    NSLog(@"imagePath %@", imagePath);
+    
+    // Create a UIImage object for the path
+    UIImage *image = [UIImage imageWithContentsOfFile:imagePath];
+    
+    // Pass it to the image view controller
+    ImageViewController *imageViewController = (ImageViewController*) segue.destinationViewController;
+    imageViewController.imageView.image = image;
 }
-
- */
 
 - (NSArray*) getEvents {
     NSFetchRequest *fetch = [NSFetchRequest fetchRequestWithEntityName:@"Event"];

@@ -14,5 +14,6 @@
 @dynamic elapsedTime;
 @dynamic timeStamp;
 @dynamic locationName;
+@dynamic imageName;
 
 @end

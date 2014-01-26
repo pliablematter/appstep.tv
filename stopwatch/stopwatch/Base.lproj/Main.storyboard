@@ -98,11 +98,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="savedCell" rowHeight="66" id="10a-jP-JXo" customClass="SavedTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="savedCell" rowHeight="66" id="10a-jP-JXo" customClass="SavedTableViewCell">
                                 <rect key="frame" x="0.0" y="86" width="320" height="66"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="10a-jP-JXo" id="bpS-mq-zgi">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="65"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FhM-Vm-Eg8">
@@ -132,6 +132,7 @@
                                     <outlet property="dateTimeLabel" destination="aFr-Ll-QYt" id="raG-KM-JPI"/>
                                     <outlet property="elapsedTimeLabel" destination="FhM-Vm-Eg8" id="v0I-lQ-bkW"/>
                                     <outlet property="locationNameLabel" destination="gF9-wS-nKu" id="zvc-rX-DEU"/>
+                                    <segue destination="9Ni-cN-aEh" kind="push" identifier="imageSegue" trigger="accessoryAction" id="VWe-sd-Ctx"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -145,6 +146,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zwX-LS-7gc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1254" y="35"/>
+        </scene>
+        <!--Image View Controller-->
+        <scene sceneID="vG0-Ku-pOf">
+            <objects>
+                <viewController id="9Ni-cN-aEh" customClass="ImageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bA5-J8-Skk"/>
+                        <viewControllerLayoutGuide type="bottom" id="mog-Td-LO9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PJE-UY-L7f">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zSs-go-Zsl">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="32V-Bg-shg"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="imageView" destination="zSs-go-Zsl" id="xeY-1l-ICm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hqb-gg-gOp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1751" y="35"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
