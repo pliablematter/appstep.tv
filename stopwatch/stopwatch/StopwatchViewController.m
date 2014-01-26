@@ -31,6 +31,11 @@
     [super viewDidLoad];
     _elapsedTime = 0;
 	// Do any additional setup after loading the view.
+    _locationManager = [[CLLocationManager alloc] init];
+    _locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+    _locationManager.delegate = self;
+    
+    _geocoder = [[CLGeocoder alloc] init];
 }
 
 - (void)didReceiveMemoryWarning
@@ -102,13 +107,20 @@
 }
 
 - (IBAction)saveButtonTapped:(id)sender {
+    [_locationManager startUpdatingLocation];
+}
+
+- (void) save
+{
     UIApplication *app = [UIApplication sharedApplication];
     AppDelegate *delegate = app.delegate;
     Event *event = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:delegate.managedObjectContext];
     event.timeStamp = [NSDate date];
     event.elapsedTime = [NSNumber numberWithDouble:_elapsedTime];
+    event.locationName = _locationName;
     [delegate saveContext];
     [self disableSaveButton];
+
 }
 
 - (void) tick
@@ -117,6 +129,41 @@
     NSTimeInterval adjustedInterval = interval + _elapsedTime;
     self.stopwatchLabel.text = [Utils timeIntervalToMinutesAndSeconds:adjustedInterval];
     NSLog(@"tick %f", interval);
+}
+
+/* CLLocationManagerDelegate */
+
+- (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    if ([locations count] > 0)
+    {
+        CLLocation *location = [locations objectAtIndex:0];
+        if(location.horizontalAccuracy >= _locationManager.desiredAccuracy
+           && [location.timestamp timeIntervalSinceNow] < 60)
+        {
+            // Get the location name
+            [_geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
+                if(!error)
+                {
+                    CLPlacemark *placemark = [placemarks objectAtIndex:0];
+                    _locationName = placemark.name;
+
+                }
+                else
+                {
+                    _locationName = nil;
+                }
+            }];
+            [self save];
+        }
+    }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    [_locationManager stopUpdatingLocation];
+    _locationName = nil;
+    [self save];
 }
 
 @end

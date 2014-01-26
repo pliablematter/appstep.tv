@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface StopwatchViewController : UIViewController {
+@interface StopwatchViewController : UIViewController<CLLocationManagerDelegate> {
     NSDate *_startTime;
     NSTimer *_timer;
     NSTimeInterval _elapsedTime;
+    CLLocationManager *_locationManager;
+    CLGeocoder *_geocoder;
+    NSString *_locationName;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *stopwatchLabel;
