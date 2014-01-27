@@ -29,6 +29,14 @@
 	// Do any additional setup after loading the view.
 }
 
+- (void) viewWillAppear:(BOOL)animated
+{
+    self.imageView.image = self.image;
+    self.imageView.transform = CGAffineTransformMakeRotation(M_PI/2);
+    NSLog(@"imageWidth %f", self.image.size.width);
+    NSLog(@"imageViewWidth %f", self.imageView.image.size.width);
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

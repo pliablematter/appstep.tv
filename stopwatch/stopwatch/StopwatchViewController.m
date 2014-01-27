@@ -180,8 +180,8 @@
                 {
                     _locationName = nil;
                 }
+                [self finishSave];
             }];
-            [self finishSave];
         }
     }
 }
@@ -218,20 +218,27 @@
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
     
     // Get the documents directory
-    NSFileManager *fileManager = [[NSFileManager alloc] init];
-    NSArray *urls = [fileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
+    NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     
     // Generate an image filename
     NSString *uuid = [[NSUUID UUID] UUIDString];
     NSString *imageName = [NSString stringWithFormat:@"%@.png", uuid];
     
-    NSString *imagePath = [NSString stringWithFormat:@"%@%@", urls[0], imageName];
+    NSString *imagePath = [documentsDirectory stringByAppendingPathComponent:imageName];
     NSLog(@"save imagePath: %@", imagePath);
     
     NSData *png = UIImagePNGRepresentation(image);
-    [png writeToFile:imagePath atomically:YES];
+    NSError *error;
+    [png writeToFile:imagePath options:NSDataWritingAtomic error:&error];
+    if(error)
+    {
+        NSLog(@"Error %@", error.description);
+    }
     
     _imageName = imageName;
+    
+    BOOL exists = [[NSFileManager defaultManager] fileExistsAtPath:imagePath];
+    NSLog(@"Image exists %d", exists);
     
     [self startSave];
 }

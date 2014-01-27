@@ -79,7 +79,7 @@
     savedCell.dateTimeLabel.text = [_dateFormatter stringFromDate:event.timeStamp];
     savedCell.locationNameLabel.text = event.locationName;
     
-    if(event.imageName)
+    if(event.imageName != NULL)
     {
         savedCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
@@ -102,13 +102,28 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [_appDelegate.managedObjectContext deleteObject:[[self getEvents] objectAtIndex:indexPath.row]];
+        Event *event = [[self getEvents] objectAtIndex:indexPath.row];
+        if(event.imageName != nil)
+        {
+            NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+            NSString *imagePath = [documentsDirectory stringByAppendingPathComponent:event.imageName];
+            NSFileManager *fileManager = [NSFileManager defaultManager];
+            NSError *error;
+            [fileManager removeItemAtPath:imagePath error:&error];
+            if(error)
+            {
+                NSLog(@"Error deleting file %@", error.description);
+            }
+        }
+        [_appDelegate.managedObjectContext deleteObject:event];
         [_appDelegate saveContext];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+        
     }
 }
 
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self performSegueWithIdentifier:@"imageSegue" sender:nil];
 }
@@ -124,24 +139,25 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     // Get the documents directory
-    NSFileManager *fileManager = [[NSFileManager alloc] init];
-    NSArray *urls = [fileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
- 
+    NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    
     // Get the image name from the event in the selected row
     NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
     Event *event = [[self getEvents] objectAtIndex:indexPath.row];
     
     // Get the full image path
-    NSString *imagePath = [NSString stringWithFormat:@"%@%@", urls[0], event.imageName];
+    NSString *imagePath = [documentsDirectory stringByAppendingPathComponent:event.imageName];
     
     NSLog(@"imagePath %@", imagePath);
     
     // Create a UIImage object for the path
     UIImage *image = [UIImage imageWithContentsOfFile:imagePath];
     
+    NSLog(@"image width 1: %f", image.size.width);
+    
     // Pass it to the image view controller
     ImageViewController *imageViewController = (ImageViewController*) segue.destinationViewController;
-    imageViewController.imageView.image = image;
+    imageViewController.image = image;
 }
 
 - (NSArray*) getEvents {
