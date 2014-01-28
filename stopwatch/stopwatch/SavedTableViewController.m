@@ -8,6 +8,8 @@
 
 #import "SavedTableViewController.h"
 #import "Event.h"
+#import "SavedTableViewCell.h"
+#import "Utils.h"
 
 @interface SavedTableViewController ()
 
@@ -36,6 +38,9 @@
     
     UIApplication *app = [UIApplication sharedApplication];
     _appDelegate = app.delegate;
+    
+    _dateFormatter = [[NSDateFormatter alloc] init];
+    [_dateFormatter setDateFormat:@"M/d/yy HH:mm a"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -63,7 +68,11 @@
     static NSString *CellIdentifier = @"savedCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    // Configure the cell...
+    Event *event = [[self getEvents] objectAtIndex:indexPath.row];
+    
+    SavedTableViewCell *savedCell = (SavedTableViewCell*) cell;
+    savedCell.elapsedTimeLabel.text = [Utils timeIntervalToMinutesAndSeconds:[event.elapsedTime integerValue]];
+    savedCell.dateTimeLabel.text = [_dateFormatter stringFromDate:event.timeStamp];
     
     return cell;
 }

@@ -9,6 +9,7 @@
 #import "StopwatchViewController.h"
 #import "AppDelegate.h"
 #import "Event.h"
+#import "Utils.h"
 
 @interface StopwatchViewController ()
 
@@ -42,7 +43,7 @@
     
     _elapsedTime = 0;
     _timer = nil;
-    self.stopwatchLabel.text = [self timeIntervalToMinutesAndSeconds:0];
+    self.stopwatchLabel.text = [Utils timeIntervalToMinutesAndSeconds:0];
     [self disableResetButton];
     [self disableSaveButton];
 }
@@ -114,16 +115,8 @@
 {
     NSTimeInterval interval = abs([_startTime timeIntervalSinceNow]);
     NSTimeInterval adjustedInterval = interval + _elapsedTime;
-    self.stopwatchLabel.text = [self timeIntervalToMinutesAndSeconds:adjustedInterval];
+    self.stopwatchLabel.text = [Utils timeIntervalToMinutesAndSeconds:adjustedInterval];
     NSLog(@"tick %f", interval);
-}
-
-- (NSString*) timeIntervalToMinutesAndSeconds:(int)timeInterval
-{
-    int minutes = floor(timeInterval / 60);
-    int seconds = timeInterval % 60;
-    
-    return [NSString stringWithFormat:@"%02d:%02d", minutes, seconds];
 }
 
 @end

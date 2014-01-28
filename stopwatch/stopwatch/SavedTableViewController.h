@@ -11,6 +11,7 @@
 
 @interface SavedTableViewController : UITableViewController {
     AppDelegate *_appDelegate;
+    NSDateFormatter *_dateFormatter;
 }
 
 @end
