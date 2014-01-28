@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
 
-@interface SavedTableViewController : UITableViewController
+@interface SavedTableViewController : UITableViewController {
+    AppDelegate *_appDelegate;
+}
 
 @end

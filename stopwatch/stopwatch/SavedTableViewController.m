@@ -7,6 +7,7 @@
 //
 
 #import "SavedTableViewController.h"
+#import "Event.h"
 
 @interface SavedTableViewController ()
 
@@ -32,6 +33,9 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    UIApplication *app = [UIApplication sharedApplication];
+    _appDelegate = app.delegate;
 }
 
 - (void)didReceiveMemoryWarning
@@ -116,5 +120,18 @@
 }
 
  */
+
+- (NSArray*) getEvents {
+    NSFetchRequest *fetch = [NSFetchRequest fetchRequestWithEntityName:@"Event"];
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"timeStamp" ascending:NO];
+    [fetch setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+    
+    NSError *error;
+    NSArray *times = [_appDelegate.managedObjectContext executeFetchRequest:fetch error:&error];
+    if(error) {
+        NSLog(@"There was an error while fetching saved times. %@", error.description);
+    }
+    return times;
+}
 
 @end
