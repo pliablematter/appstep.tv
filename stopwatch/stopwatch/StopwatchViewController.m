@@ -107,6 +107,7 @@
     event.timeStamp = [NSDate date];
     event.elapsedTime = [NSNumber numberWithDouble:_elapsedTime];
     [delegate saveContext];
+    [self disableSaveButton];
 }
 
 - (void) tick
