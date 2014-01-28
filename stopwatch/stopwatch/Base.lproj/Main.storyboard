@@ -89,16 +89,16 @@
             </objects>
             <point key="canvasLocation" x="722" y="40"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Saved Table View Controller-->
         <scene sceneID="SGJ-ZO-KHI">
             <objects>
-                <tableViewController id="kUz-5e-a9e" sceneMemberID="viewController">
+                <tableViewController id="kUz-5e-a9e" customClass="SavedTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="62" sectionHeaderHeight="22" sectionFooterHeight="22" id="mSo-SJ-RaT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="savedCell" rowHeight="62" id="gR0-a8-Osv">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="savedCell" rowHeight="62" id="gR0-a8-Osv" customClass="SavedTableViewCell">
                                 <rect key="frame" x="0.0" y="86" width="320" height="62"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gR0-a8-Osv" id="HGh-IA-aNW">
@@ -121,6 +121,10 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="dateTimeLabel" destination="OFY-vp-jRo" id="whE-DU-gRF"/>
+                                    <outlet property="elapsedTimeLabel" destination="ACl-4K-NQ3" id="dNm-PN-3xn"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
