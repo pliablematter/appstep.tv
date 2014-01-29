@@ -2,7 +2,7 @@
 //  Event.m
 //  stopwatch
 //
-//  Created by Doug Burns on 1/20/14.
+//  Created by Doug Burns on 1/29/14.
 //  Copyright (c) 2014 Pliable Matter LLC. All rights reserved.
 //
 
@@ -11,7 +11,8 @@
 
 @implementation Event
 
-@dynamic timeStamp;
 @dynamic elapsedTime;
+@dynamic timeStamp;
+@dynamic locationName;
 
 @end

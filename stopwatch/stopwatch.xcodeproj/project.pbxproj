@@ -31,7 +31,8 @@
 		9189F16C1897CC1F00354270 /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9189F1671897CC1E00354270 /* Icon-60@2x.png */; };
 		9189F16D1897CC1F00354270 /* Launch-R4.png in Resources */ = {isa = PBXBuildFile; fileRef = 9189F1681897CC1E00354270 /* Launch-R4.png */; };
 		9189F16E1897CC1F00354270 /* Launch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9189F1691897CC1E00354270 /* Launch@2x.png */; };
-		91DC1910188D68AE00FCF39F /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DC190F188D68AE00FCF39F /* Event.m */; };
+		9191004F1899087600452EF5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9191004E1899087600452EF5 /* CoreLocation.framework */; };
+		9191005218990D3B00452EF5 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 9191005118990D3B00452EF5 /* Event.m */; };
 		91F62CAF1826F2C900403F45 /* StopwatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91F62CAE1826F2C900403F45 /* StopwatchViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -76,8 +77,9 @@
 		9189F1671897CC1E00354270 /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
 		9189F1681897CC1E00354270 /* Launch-R4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Launch-R4.png"; sourceTree = "<group>"; };
 		9189F1691897CC1E00354270 /* Launch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Launch@2x.png"; sourceTree = "<group>"; };
-		91DC190E188D68AE00FCF39F /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
-		91DC190F188D68AE00FCF39F /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		9191004E1899087600452EF5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		9191005018990D3B00452EF5 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		9191005118990D3B00452EF5 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		91F62CAD1826F2C900403F45 /* StopwatchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopwatchViewController.h; sourceTree = "<group>"; };
 		91F62CAE1826F2C900403F45 /* StopwatchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StopwatchViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9191004F1899087600452EF5 /* CoreLocation.framework in Frameworks */,
 				910B70D51824FD4600FB60F3 /* CoreGraphics.framework in Frameworks */,
 				910B70D91824FD4600FB60F3 /* CoreData.framework in Frameworks */,
 				910B70D71824FD4600FB60F3 /* UIKit.framework in Frameworks */,
@@ -130,6 +133,7 @@
 		910B70D11824FD4600FB60F3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9191004E1899087600452EF5 /* CoreLocation.framework */,
 				910B70D21824FD4600FB60F3 /* Foundation.framework */,
 				910B70D41824FD4600FB60F3 /* CoreGraphics.framework */,
 				910B70D61824FD4600FB60F3 /* UIKit.framework */,
@@ -155,14 +159,14 @@
 				910B70DB1824FD4600FB60F3 /* Supporting Files */,
 				91F62CAD1826F2C900403F45 /* StopwatchViewController.h */,
 				91F62CAE1826F2C900403F45 /* StopwatchViewController.m */,
-				91DC190E188D68AE00FCF39F /* Event.h */,
-				91DC190F188D68AE00FCF39F /* Event.m */,
 				9189F15C1897B98F00354270 /* SavedTableViewController.h */,
 				9189F15D1897B98F00354270 /* SavedTableViewController.m */,
 				9189F15F1897B9B800354270 /* SavedTableViewCell.h */,
 				9189F1601897B9B800354270 /* SavedTableViewCell.m */,
 				9189F1621897C53200354270 /* Utils.h */,
 				9189F1631897C53200354270 /* Utils.m */,
+				9191005018990D3B00452EF5 /* Event.h */,
+				9191005118990D3B00452EF5 /* Event.m */,
 			);
 			path = stopwatch;
 			sourceTree = "<group>";
@@ -300,9 +304,9 @@
 			files = (
 				91F62CAF1826F2C900403F45 /* StopwatchViewController.m in Sources */,
 				910B70E51824FD4600FB60F3 /* AppDelegate.m in Sources */,
-				91DC1910188D68AE00FCF39F /* Event.m in Sources */,
 				9189F1641897C53200354270 /* Utils.m in Sources */,
 				9189F1611897B9B800354270 /* SavedTableViewCell.m in Sources */,
+				9191005218990D3B00452EF5 /* Event.m in Sources */,
 				9189F15E1897B98F00354270 /* SavedTableViewController.m in Sources */,
 				910B70E11824FD4600FB60F3 /* main.m in Sources */,
 				910B70EB1824FD4600FB60F3 /* stopwatch.xcdatamodeld in Sources */,

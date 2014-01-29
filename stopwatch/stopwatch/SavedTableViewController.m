@@ -73,6 +73,7 @@
     SavedTableViewCell *savedCell = (SavedTableViewCell*) cell;
     savedCell.elapsedTimeLabel.text = [Utils timeIntervalToMinutesAndSeconds:[event.elapsedTime integerValue]];
     savedCell.dateTimeLabel.text = [_dateFormatter stringFromDate:event.timeStamp];
+    savedCell.locationNameLabel.text = event.locationName;
     
     return cell;
 }

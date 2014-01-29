@@ -11,5 +11,6 @@
 @interface SavedTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *elapsedTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dateTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *locationNameLabel;
 
 @end
