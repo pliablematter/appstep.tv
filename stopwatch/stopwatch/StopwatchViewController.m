@@ -37,6 +37,15 @@
     _locationManager.delegate = self;
     
     _geocoder = [[CLGeocoder alloc] init];
+    
+    _actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"No Photo" destructiveButtonTitle:nil otherButtonTitles:@"Add Photo", nil];
+    
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+    {
+        _cameraUi = [[UIImagePickerController alloc] init];
+        _cameraUi.sourceType = UIImagePickerControllerSourceTypeCamera;
+        _cameraUi.delegate = self;
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -108,7 +117,15 @@
 }
 
 - (IBAction)saveButtonTapped:(id)sender {
-    [self startSave];
+    
+    if(_cameraUi)
+    {
+        [_actionSheet showInView:self.view];
+    }
+    else
+    {
+        [self startSave];
+    }
 }
 
 - (void) startSave
@@ -124,6 +141,7 @@
     event.timeStamp = [NSDate date];
     event.elapsedTime = [NSNumber numberWithDouble:_elapsedTime];
     event.locationName = _locationName;
+    event.imageName = _imageName;
     [delegate saveContext];
     [self disableSaveButton];
 }
@@ -170,6 +188,58 @@
     [_locationManager stopUpdatingLocation];
     _locationName = nil;
     [self finishSave];
+}
+
+/* UIActionSheetDelegate */
+
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 0)
+    {
+        // Add photo
+        [self presentViewController:_cameraUi animated:YES completion:nil];
+    }
+    else
+    {
+        // Don't add photo
+        _imageName = nil;
+        [self startSave];
+    }
+}
+
+/* UIImagePickerControllerDelegate */
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    [_cameraUi dismissViewControllerAnimated:YES completion:nil];
+    
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    
+    // Get the documents directory
+    NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    
+    // Generate an image filename
+    NSString *uuid = [[NSUUID UUID] UUIDString];
+    NSString *imageName = [NSString stringWithFormat:@"%@.png", uuid];
+    
+    NSString *imagePath = [documentsDirectory stringByAppendingPathComponent:imageName];
+    
+    NSData *png = UIImagePNGRepresentation(image);
+    NSError *error;
+    [png writeToFile:imagePath options:NSDataWritingAtomic error:&error];
+    if(error)
+    {
+        NSLog(@"Error %@", error.description);
+    }
+    
+    _imageName = imageName;
+    
+    [self startSave];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [self startSave];
 }
 
 @end

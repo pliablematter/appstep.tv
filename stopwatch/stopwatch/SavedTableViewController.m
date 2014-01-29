@@ -10,6 +10,7 @@
 #import "Event.h"
 #import "SavedTableViewCell.h"
 #import "Utils.h"
+#import "ImageViewController.h"
 
 @interface SavedTableViewController ()
 
@@ -75,6 +76,15 @@
     savedCell.dateTimeLabel.text = [_dateFormatter stringFromDate:event.timeStamp];
     savedCell.locationNameLabel.text = event.locationName;
     
+    if(event.imageName != NULL)
+    {
+        savedCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
+    else
+    {
+        savedCell.accessoryType = UITableViewCellAccessoryNone;
+    }
+    
     return cell;
 }
 
@@ -89,10 +99,56 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [_appDelegate.managedObjectContext deleteObject:[[self getEvents] objectAtIndex:indexPath.row]];
+        Event *event = [[self getEvents] objectAtIndex:indexPath.row];
+        if(event.imageName != nil)
+        {
+            NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+            NSString *imagePath = [documentsDirectory stringByAppendingPathComponent:event.imageName];
+            NSFileManager *fileManager = [NSFileManager defaultManager];
+            NSError *error;
+            [fileManager removeItemAtPath:imagePath error:&error];
+            if(error)
+            {
+                NSLog(@"Error deleting file %@", error.description);
+            }
+        }
+        [_appDelegate.managedObjectContext deleteObject:event];
         [_appDelegate saveContext];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:@"imageSegue" sender:nil];
+}
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+    
+    // Only segue if the selected row has a disclosure indicator
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:self.tableView.indexPathForSelectedRow];
+    return (cell.accessoryType == UITableViewCellAccessoryDisclosureIndicator);
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Get the documents directory
+    NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    
+    // Get the image name from the event in the selected row
+    NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
+    Event *event = [[self getEvents] objectAtIndex:indexPath.row];
+    
+    // Get the full image path
+    NSString *imagePath = [documentsDirectory stringByAppendingPathComponent:event.imageName];
+    
+    // Create a UIImage object for the path
+    UIImage *image = [UIImage imageWithContentsOfFile:imagePath];
+    
+    // Pass it to the image view controller
+    ImageViewController *imageViewController = (ImageViewController*) segue.destinationViewController;
+    imageViewController.image = image;
 }
 
 /*

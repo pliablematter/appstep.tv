@@ -15,5 +15,6 @@
 @property (nonatomic, retain) NSNumber * elapsedTime;
 @property (nonatomic, retain) NSDate * timeStamp;
 @property (nonatomic, retain) NSString * locationName;
+@property (nonatomic, retain) NSString * imageName;
 
 @end
